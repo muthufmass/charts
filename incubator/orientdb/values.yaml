@@ -64,10 +64,12 @@ persistence:
   storage:
     accessMode:
     - ReadWriteOnce
+    #  storageClassName - 'nfs-storage'
     size: 10Gi
   backup:
     accessMode:
     - ReadWriteOnce
+    #  storageClassName - 'nfs-storage'
     size: 2Gi
 
 config:
