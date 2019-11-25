@@ -132,6 +132,9 @@ spec:
       name: storage
     spec:
       accessModes: {{ .Values.persistence.storage.accessMode }}
+      {{- if .Values.persistence.storage.storageClassName }}
+      storageClassName: {{ .Values.persistence.storage.storageClassName }}
+      {{- end }}
       resources:
         requests:
           storage: {{ .Values.persistence.storage.size }}
@@ -139,6 +142,9 @@ spec:
       name: backup
     spec:
       accessModes: {{ .Values.persistence.backup.accessMode }}
+      {{- if .Values.persistence.backup.storageClassName }}
+      storageClassName: {{ .Values.persistence.backup.storageClassName }}
+      {{- end }}
       resources:
         requests:
           storage: {{ .Values.persistence.backup.size }}
