@@ -61,9 +61,6 @@ hazelcast:
 
 persistence:
   enabled: true
-  # volumeClaim:
-  #   storageName: orient-vc-01
-  #   backupName: orient-vc-backup-01
   storage:
     # storageClassName: nfs-client
     accessMode:
