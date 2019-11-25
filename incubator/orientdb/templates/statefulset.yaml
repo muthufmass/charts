@@ -84,8 +84,13 @@ spec:
           {{- if .Values.persistence.enabled }}
           - name: storage
             mountPath: /orientdb/databases
-          - name: backup
+            subPath: databases
+          - name: storage
             mountPath: /orientdb/backup
+            subPath: backup
+          - name: config
+            mountPath: /orientdb/config
+            subPath: config
           {{- end }}
         {{- if .Values.readinessProbe.enabled }}
         readinessProbe:
@@ -138,14 +143,4 @@ spec:
       resources:
         requests:
           storage: {{ .Values.persistence.storage.size }}
-  - metadata:
-      name: backup
-    spec:
-      accessModes: {{ .Values.persistence.backup.accessMode }}
-      {{- if .Values.persistence.backup.storageClassName }}
-      storageClassName: {{ .Values.persistence.backup.storageClassName }}
-      {{- end }}
-      resources:
-        requests:
-          storage: {{ .Values.persistence.backup.size }}
 {{- end}}

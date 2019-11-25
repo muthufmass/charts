@@ -66,11 +66,6 @@ persistence:
     accessMode:
     - ReadWriteOnce
     size: 10Gi
-  backup:
-    # storageClassName: nfs-client
-    accessMode:
-    - ReadWriteOnce
-    size: 2Gi
 
 config:
   overrideHazelcastConfig: true
